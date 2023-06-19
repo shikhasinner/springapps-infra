@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://github.com/Azure/deployment-environments/releases/download/2022-11-11-preview/manifest.schema.json
+name: Spring Apps - Standard
+version: 1.0.0
+summary: Spring Apps Standard Environment
+description: Deploys a Spring Apps Standard Environment in a Vnet, Log Analytics Workspace and Application Insights.
+runner: ARM
+templatePath: azuredeploy.json
+
+parameters:
+  - id: springCloudInstanceName
+    name: springCloudInstanceName
+    description: 'Name of the Spring App Instance'
+    type: string
+    required: true    
+
+  - id: appInsightsName
+    name: appInsightsName
+    description: 'Name of Application Insights'
+    type: string
+    required: true    
+
+  - id: laWorkspaceResourceId
+    name: laWorkspaceResourceId
+    description: 'Resource Id of Log Analytics Workspace'
+    type: string
+    default: '/subscriptions/8bda0114-e1c0-457b-a1e4-2a7ab7103c5d/resourceGroups/springapps-network-rg/providers/Microsoft.OperationalInsights/workspaces/springapps-logs-workspace'
+
+  - id: springCloudAppSubnetID
+    name: springCloudAppSubnetID
+    description: 'Subnet Id for Spring Cloud App'
+    type: string
+    default: '/subscriptions/8bda0114-e1c0-457b-a1e4-2a7ab7103c5d/resourceGroups/springapps-network-rg/providers/Microsoft.Network/virtualNetworks/azure-spring-apps-vnet/subnets/apps-subnet'
+
+  - id: springCloudRuntimeSubnetID
+    name: springCloudAppSubnetID
+    description: 'Subnet Id for Spring Runtime'
+    type: string
+    default: '/subscriptions/8bda0114-e1c0-457b-a1e4-2a7ab7103c5d/resourceGroups/springapps-network-rg/providers/Microsoft.Network/virtualNetworks/azure-spring-apps-vnet/subnets/service-runtime-subnet'

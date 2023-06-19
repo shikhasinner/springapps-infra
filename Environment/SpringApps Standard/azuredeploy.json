@@ -4,15 +4,13 @@
     "parameters": {
         "springCloudInstanceName": {
             "type": "string",
-            "defaultValue": "team1-spring-apps-instance",
-            "metadata": {
+             "metadata": {
                 "description": "The instance name of the Azure Spring Cloud resource"
             }
         },
         "appInsightsName": {
             "type": "string",
-            "defaultValue": "team1-spring-apps-insights",
-            "metadata": {
+             "metadata": {
                 "description": "The name of the Application Insights instance for Azure Spring Cloud"
             }
         },
