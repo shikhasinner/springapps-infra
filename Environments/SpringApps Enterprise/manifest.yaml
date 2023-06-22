@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=https://github.com/Azure/deployment-environments/releases/download/2022-11-11-preview/manifest.schema.json
+name: SpringApps-Enterprise
+version: 1.0.0
+summary: Spring Apps Enterprise Environment
+description: Deploys a Spring Apps Enterprise Environment in a Vnet, Log Analytics Workspace and Application Insights.
+runner: ARM
+templatePath: azuredeploy.json
+
+parameters:
+  - id: springCloudInstanceName
+    name: springCloudInstanceName
+    description: 'Name of the Spring App Instance'
+    type: string
+    required: true   
+
+  - id: appInsightsName
+    name: appInsightsName
+    description: 'Name of Application Insights'
+    type: string
+    required: true  
