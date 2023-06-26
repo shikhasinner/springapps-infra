@@ -75,8 +75,11 @@
                 "ApplicationId": "[parameters('appInsightsName')]",
                 "Flow_Type": "Bluefield",
                 "Request_Source": "rest",
-                "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', [parameters('logAnalyticsWorkspaceName'))]"
-            }
+                "WorkspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('logAnalyticsWorkspaceName'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('logAnalyticsWorkspaceName'))]"
+              ]
         },
         {
             "apiVersion": "2022-03-01-preview",
@@ -193,7 +196,7 @@
             "apiVersion": "2017-05-01-preview",
             "properties": {
                 "name": "monitoring",
-                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', [parameters('logAnalyticsWorkspaceName'))]",
+                "workspaceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('logAnalyticsWorkspaceName'))]",
                 "logs": [
                     {
                         "category": "ApplicationConsole",
