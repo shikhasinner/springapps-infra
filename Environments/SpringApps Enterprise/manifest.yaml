@@ -30,15 +30,4 @@ parameters:
     description: 'Name of Application Insights'
     type: string
     required: true 
-
-  - id: springCloudAppSubnet
-    name: springCloudAppSubnet
-    description: 'Spring Apps microservice subnet'    
-    type: string
-    required: true 
-
-  - id: springCloudRuntimeSubnet
-    name: springCloudRuntimeSubnet
-    description: 'Service runtime subnet'
-    type: string
-    required: true            
+        

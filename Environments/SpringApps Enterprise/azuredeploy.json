@@ -26,18 +26,6 @@
                 "description": "The name of the Azure Spring Cloud App Virtual Network"
             }
         },
-        "springCloudAppSubnet": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the Azure Spring Cloud App Subnet"
-            }
-        },
-        "springCloudRuntimeSubnet": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the Azure Spring Cloud Runtime Subnet"
-            }
-        },
         "springCloudServiceCidrs": {
             "type": "string",
             "defaultValue": "10.0.0.0/16,10.2.0.0/16,10.3.0.1/16",
@@ -58,8 +46,8 @@
     "variables": {
         "location": "[resourceGroup().location]",
         "laWorkspaceResourceId" : "[resourceId('Microsoft.OperationalInsights/workspaces', [parameters('logAnalyticsWorkspaceName')]]",
-        "springCloudAppSubnetId": "[concat(resourceId('Microsoft.Network/virtualNetworks', [parameters('vnetName')], '/subnets/', [parameters('springCloudAppSubnet')]]",
-        "springCloudRuntimeSubnetId": "[concat(resourceId('Microsoft.Network/virtualNetworks', [parameters('vnetName')], '/subnets/', [parameters('springCloudRuntimeSubnet')]]"
+        "springCloudAppSubnetId": "[concat(resourceId('Microsoft.Network/virtualNetworks', [parameters('vnetName')], '/subnets/apps-subnet']",
+        "springCloudRuntimeSubnetId": "[concat(resourceId('Microsoft.Network/virtualNetworks', [parameters('vnetName')], '/subnets/service-runtime-subnet']"
          
 
     },
