@@ -45,8 +45,9 @@
     },
     "variables": {
         "location": "[resourceGroup().location]",
-        "springCloudAppSubnetId": "[concat(resourceId('Microsoft.Network/virtualNetworks', [parameters('vnetName')], '/subnets/apps-subnet')]",
-        "springCloudRuntimeSubnetId": "[concat(resourceId('Microsoft.Network/virtualNetworks', [parameters('vnetName')], '/subnets/service-runtime-subnet')]"
+        "virtualNetworkResourceGroup": "network-rg",
+        "springCloudAppSubnetId": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('springCloudVirtualNetwork'), 'apps-subnet')]",
+        "springCloudRuntimeSubnetId": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('springCloudVirtualNetwork'), 'service-runtime-subnet')]"
          
 
     },
@@ -54,15 +55,15 @@
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('logAnalyticsWorkspaceName')]",
-            "apiVersion": "2017-03-15-preview",            
+            "apiVersion": "2017-03-15-preview",
             "location": "[variables('location')]",
             "tags": "[parameters('tags')]",            
             "properties": {
                 "sku": {
-                    "name": "[parameters('pergb2018')]"
+                    "name": "pergb2018"
                 }
             }
-        },
+        },        
         {
             "type": "Microsoft.Insights/components",
             "name": "[parameters('appInsightsName')]",
