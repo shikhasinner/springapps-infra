@@ -46,8 +46,8 @@
     "variables": {
         "location": "[resourceGroup().location]",
         "virtualNetworkResourceGroup": "network-rg",
-        "springCloudAppSubnetId": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('springCloudVirtualNetwork'), 'apps-subnet')]",
-        "springCloudRuntimeSubnetId": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('springCloudVirtualNetwork'), 'service-runtime-subnet')]"
+        "springCloudAppSubnetId": "[resourceId(variables('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('springCloudVirtualNetwork'), 'apps-subnet')]",
+        "springCloudRuntimeSubnetId": "[resourceId(variables('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('springCloudVirtualNetwork'), 'service-runtime-subnet')]"
          
 
     },
